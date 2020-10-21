@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View, Image } from 'react-native';
+import { Text, StyleSheet, View, Image, Platform, TouchableHighlight } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import flatListData from '../data/flatListData';
 import Swipeout from 'react-native-swipeout'
@@ -88,7 +88,12 @@ export default class BasicFlatList extends React.Component {
     }
     render () {
         return (
-            <View style={{flex: 1, marginTop: 34}}>
+            <View style={{flex: 1, marginTop: Platform.OS  === 'ios' ? 43 : 0}}>
+                <View style={{backgroundColor: 'tomato', height: 64, justifyContent: 'flex-end', flexDirection: 'row', alignItems: 'center'}}>
+                    <TouchableHighlight style={{marginRight: 10}} underlayColor='tomato' >
+                        <Image style={{width: 35, height: 35}} source={{uri: 'https://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-add-icon.png'}}/>
+                    </TouchableHighlight>
+                </View>
                 <FlatList 
                     data={flatListData}
                     renderItem={({item, index}) => {
