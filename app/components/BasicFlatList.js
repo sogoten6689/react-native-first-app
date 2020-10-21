@@ -4,6 +4,7 @@ import { FlatList } from 'react-native-gesture-handler';
 import flatListData from '../data/flatListData';
 import Swipeout from 'react-native-swipeout'
 import { Alert } from 'react-native';
+import AddModal from './AddModal';
 
 class FlatListItem extends React.Component {
     constructor(props) {
@@ -78,6 +79,7 @@ export default class BasicFlatList extends React.Component {
         this.state = ({
             deletedRowKey: null,
         });
+        this._onPressAdd = this._onPressAdd.bind(this);
     }
     refreshFlatList = ( deletedKey ) => {
         this.setState((prevState) => {
@@ -85,16 +87,23 @@ export default class BasicFlatList extends React.Component {
                 deletedRowKey: deletedKey
             }
         });
+        this.refs.flatList.scrollToEnd();
+    }
+    _onPressAdd() {
+        this.refs.addModal.showAddModal();
     }
     render () {
         return (
             <View style={{flex: 1, marginTop: Platform.OS  === 'ios' ? 43 : 0}}>
                 <View style={{backgroundColor: 'tomato', height: 64, justifyContent: 'flex-end', flexDirection: 'row', alignItems: 'center'}}>
-                    <TouchableHighlight style={{marginRight: 10}} underlayColor='tomato' >
+                    <TouchableHighlight style={{marginRight: 10}} underlayColor='tomato'
+                        onPress={this._onPressAdd}
+                    >
                         <Image style={{width: 35, height: 35}} source={{uri: 'https://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-add-icon.png'}}/>
                     </TouchableHighlight>
                 </View>
                 <FlatList 
+                    ref={"flatList"}
                     data={flatListData}
                     renderItem={({item, index}) => {
                         return (
@@ -102,6 +111,9 @@ export default class BasicFlatList extends React.Component {
                         )
                     }}
                 ></FlatList>
+                <AddModal ref={'addModal'} parentFlatList={this}>
+                     
+                </AddModal>
             </View>
         );
     }
