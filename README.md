@@ -5,4 +5,5 @@
 * yarn install
 
 ## run
-* eact-native run-ios --simulator="iPhone 7 Plus";
+* react-native run-ios --simulator="iPhone 7 Plus";
+* react-native run-android
