@@ -1,6 +1,6 @@
 import React from 'react';
 
-const apiGetAllFoods = 'http://localhost:3000/api/foods';
+const apiGetAllFoods = 'https://expressionjs-postresql.herokuapp.com/api/foods';
 
 async function getFoodsFromServer () {
     try {
