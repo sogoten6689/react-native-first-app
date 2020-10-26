@@ -11,7 +11,7 @@ import FlexDimension from './app/components/FlexDimension';
 import FlexDirection from './app/components/FlexDirection';
 import JustifyContent from './app/components/JustifyContent';
 import EmailAndPassword from './app/components/EmailAndPassword';
-import BasicFlatList from './app/components/BasicFlatList';
+import BasicFlatList from './app/components/BasicFlatListOld';
 
 
 AppRegistry.registerComponent(appName, () => BasicFlatList);

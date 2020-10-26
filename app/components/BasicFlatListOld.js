@@ -5,7 +5,6 @@ import flatListData from '../data/flatListData';
 import Swipeout from 'react-native-swipeout'
 import { Alert } from 'react-native';
 import AddModal from './AddModal';
-
 import { getFoodsFromServer } from '../../networking/Server';
 
 class FlatListItem extends React.Component {
@@ -87,19 +86,8 @@ export default class BasicFlatList extends React.Component {
         super(props);
         this.state = ({
             deletedRowKey: null,
-            foodsFromServer: [],
         });
         this._onPressAdd = this._onPressAdd.bind(this);
-    }
-    componentDidMount() {
-        this.refreshDataFromServer();
-    }
-    refreshDataFromServer = () => {
-        getFoodsFromServer().then((foods) => {
-            this.setState({foodsFromServer: foods});
-        }).catch((error) => {
-            this.setState({foodsFromServer: []});
-        });
     }
     refreshFlatList = ( deletedKey ) => {
         this.setState((prevState) => {
@@ -124,8 +112,8 @@ export default class BasicFlatList extends React.Component {
                 </View>
                 <FlatList 
                     ref={"flatList"}
-                    // data={flatListData}
-                    data={this.state.foodsFromServer}
+                    data={flatListData}
+                    // data={this.state.foodsFromServer}
                     renderItem={({item, index}) => {
                         return (
                             <FlatListItem item={item} index={index} parentFlatList={this}></FlatListItem>
