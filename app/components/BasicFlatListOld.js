@@ -5,14 +5,23 @@ import flatListData from '../data/flatListData';
 import Swipeout from 'react-native-swipeout'
 import { Alert } from 'react-native';
 import AddModal from './AddModal';
+import EditModal from './EditModal';
 import { getFoodsFromServer } from '../../networking/Server';
 
 class FlatListItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeRowKey: null
+            activeRowKey: null,
+            numberOfRefresh: 0
         };
+    }
+    refreshFlatListItem = () => {
+        this.setState((prevState) => {
+            return {
+                numberOfRefresh: prevState.numberOfRefresh + 1,
+            };
+        });
     }
     render() {
         const swipeSetting = {
@@ -28,7 +37,8 @@ class FlatListItem extends React.Component {
             right: [
                 {
                     onPress: () => {
-                        Alert.alert("Edit")
+                        // Alert.alert("Edit");
+                        this.props.parentFlatList.refs.editModal.showEditModal(flatListData[this.props.index], this);
                     },
                     text: 'Sửa', type: 'primary'
                 },
@@ -85,7 +95,7 @@ export default class BasicFlatList extends React.Component {
     constructor(props) {
         super(props);
         this.state = ({
-            deletedRowKey: null,
+            deletedRowKey: null
         });
         this._onPressAdd = this._onPressAdd.bind(this);
     }
@@ -123,6 +133,9 @@ export default class BasicFlatList extends React.Component {
                 <AddModal ref={'addModal'} parentFlatList={this}>
                      
                 </AddModal>
+                <EditModal ref={'editModal'} parentFlatList={this}>
+                     
+                </EditModal>
             </View>
         );
     }

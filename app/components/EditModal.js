@@ -11,11 +11,18 @@ export default class EditModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            newFoodName: "",
-            newFoodDescription: ""
+            foodName: "",
+            foodDescription: ""
         }
     }
-    showAddModal = () => {
+    showEditModal = (editingFood, flatListItem) => {
+        console.log(`editingFood = ${JSON.stringify(editingFood)}`)
+        this.setState({
+            key: editingFood.key,
+            foodName: editingFood.name,
+            foodDescription: editingFood.foodDescription,
+            flatListItem: flatListItem
+        });
         this.refs.myModal.open();
     }
     generateKey = (numberOfCharacters) => {
@@ -40,16 +47,16 @@ export default class EditModal extends Component {
                     fontWeight: 'bold',
                     textAlign: 'center',
                     marginTop: 40,
-                }}>New food's information</Text>
+                }}>Food's information</Text>
                 <TextInput style={{
                     height: 40,
                     borderBottomColor: 'gray',
                     margin: 20,
                     borderBottomWidth: 1,
                 }}
-                onChangeText={(text) => this.setState({ newFoodName: text})}
+                onChangeText={(text) => this.setState({ foodName: text})}
                 placeholder="Nhap ten"
-                value={this.state.newFoodName}
+                value={this.state.foodName}
                 />
                 <TextInput style={{
                     height: 40,
@@ -57,9 +64,9 @@ export default class EditModal extends Component {
                     margin: 20,
                     borderBottomWidth: 1,
                 }}
-                onChangeText={(text) => this.setState({ newFoodDescription: text})}
+                onChangeText={(text) => this.setState({ foodDescription: text})}
                 placeholder="Nhap mo ta"
-                value={this.state.newFoodDescription}
+                value={this.state.foodDescription}
                 />
                 <Button
                     style={{fontSize: 18, color: 'white'}}
@@ -72,19 +79,17 @@ export default class EditModal extends Component {
                         backgroundColor: 'mediumseagreen'
                     }}
                     onPress={() => {
-                        if (this.state.newFoodDescription.length == 0 || this.state.newFoodName.length == 0) {
+                        if (this.state.foodDescription.length == 0 || this.state.foodName.length == 0) {
                             alert("Vui long nhap day du thong");
                             return;
                         }
-                        const newKey = this.generateKey(10);
-                        const newFood = {
-                            key: newKey,
-                            name: this.state.newFoodName,
-                            imageUrl: "https://i0.wp.com/www.oakridge.in/wp-content/uploads/2020/02/Sample-jpg-image-500kb.jpg",
-                            foodDescription: this.state.newFoodDescription
+                        var foundIndex = flatListData.findIndex(item => this.state.key == item.key);
+                        if (foundIndex < 0 ){
+                            return;
                         }
-                        flatListData.push(newFood);
-                        this.props.parentFlatList.refreshFlatList(newKey);
+                        flatListData[foundIndex].name = this.state.foodName;
+                        flatListData[foundIndex].foodDescription = this.state.foodDescription;
+                        this.state.flatListItem.refreshFlatListItem();
                         this.refs.myModal.close();
                     }}
                 >Save</Button>
