@@ -12,6 +12,7 @@ import FlexDirection from './app/components/FlexDirection';
 import JustifyContent from './app/components/JustifyContent';
 import EmailAndPassword from './app/components/EmailAndPassword';
 import BasicFlatList from './app/components/BasicFlatListOld';
+import HorizontalFlatList from './app/components/HorizontalFlatList';
 
 
-AppRegistry.registerComponent(appName, () => BasicFlatList);
+AppRegistry.registerComponent(appName, () => HorizontalFlatList);
