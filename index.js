@@ -13,6 +13,7 @@ import JustifyContent from './app/components/JustifyContent';
 import EmailAndPassword from './app/components/EmailAndPassword';
 import BasicFlatList from './app/components/BasicFlatListOld';
 import HorizontalFlatList from './app/components/HorizontalFlatList';
+import BasicSectionList from './app/components/BasicSectionList';
 
 
-AppRegistry.registerComponent(appName, () => HorizontalFlatList);
+AppRegistry.registerComponent(appName, () => BasicSectionList);
