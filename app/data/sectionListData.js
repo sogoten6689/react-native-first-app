@@ -6,61 +6,61 @@ var sectionListData = [
                 description: "người Long An, lập trình viên giản dị...",
             },
             {
-                name: "Lam nguyen",
-                description: "người Long An, lập trình viên giản dị...",
+                name: "Minh Huy",
+                description: "Gamer - chuyên live stream game",
             },
             {
-                name: "Lam nguyen",
-                description: "người Long An, lập trình viên giản dị...",
+                name: "Ngoc Thao",
+                description: "nghệ sĩ piano - ca sĩ nhạc pop",
             },
             {
-                name: "Lam nguyen",
-                description: "người Long An, lập trình viên giản dị...",
+                name: "Mi Hà",
+                description: "người mẫu - diễn viên điện ảnh",
             },
         ],
-        title: "Danh sách người dùng222"
+        title: "Danh sách người dùng"
     },
     {
         data: [
             {
-                name: "Lam nguyen",
-                description: "người Long An, lập trình viên giản dị...",
+                name: "Iphone 5s",
+                description: "sản phẩm của Apple",
             },
             {
-                name: "Lam nguyen",
-                description: "người Long An, lập trình viên giản dị...",
+                name: "Samsung note 4",
+                description: "dòng điện thoại đến từ hàn quốc",
             },
             {
-                name: "Lam nguyen",
-                description: "người Long An, lập trình viên giản dị...",
+                name: "Nokia 1280",
+                description: "dòng điện thoại bền bỉ",
             },
             {
-                name: "Lam nguyen",
-                description: "người Long An, lập trình viên giản dị...",
+                name: "LG G3",
+                description: "dòng điện thoại có màn hình tinh té",
             },
         ],
-        title: "Danh sách người dùng1111"
+        title: "Danh sách Điện thoại"
     },
     {
         data: [
             {
-                name: "Lam nguyen",
-                description: "người Long An, lập trình viên giản dị...",
+                name: "Cub 79",
+                description: "Dòng xe honda đi chợ những năm 90",
             },
             {
-                name: "Lam nguyen",
-                description: "người Long An, lập trình viên giản dị...",
+                name: "Dream",
+                description: "dòn xe honda sang chảnh thời đầu 2000",
             },
             {
-                name: "Lam nguyen",
-                description: "người Long An, lập trình viên giản dị...",
+                name: "Win 100",
+                description: "xe chuyên đi phượt cày bữa vượt sông núi",
             },
             {
-                name: "Lam nguyen",
-                description: "người Long An, lập trình viên giản dị...",
+                name: "Atila alizabet",
+                description: "Sản phẩm xe tay ga thời trang phu xăng điện tử",
             },
         ],
-        title: "Danh sách người dùng3333"
+        title: "Danh sách phương tiện giao thông"
     },
 ];
 export {sectionListData};
