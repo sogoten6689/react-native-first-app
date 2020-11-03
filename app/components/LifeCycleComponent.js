@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 class LifeCycle extends Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class LifeCycle extends Component {
             this.setState(previousState => {
                 return { numberOfRefresh: previousState.numberOfRefresh + 1}
             });
-        }, 10000);
+        }, 20000);
     }
     componentWillMount(){
         console.log(`${Date.now()}. This is  componentWillMount`);
@@ -31,13 +31,15 @@ class LifeCycle extends Component {
         console.log(`${Date.now()}. This is componentDidUpdate`);
     }
     render() {
-        console.log(`${Math.floor(Date.now())}. This is render function`)
+        console.log(`${Math.floor(Date.now())}. This is render function`);
+        let textToDisplay = `Numbers of refresh: ${this.state.numberOfRefresh}`;
         return (
             <View
                 style={{flex: 1,
                 marginTop: 100
             }}
             >
+                <Text>{textToDisplay}</Text>
 
             </View>
         );
