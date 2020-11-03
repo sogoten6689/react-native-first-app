@@ -14,6 +14,7 @@ import EmailAndPassword from './app/components/EmailAndPassword';
 import BasicFlatList from './app/components/BasicFlatListOld';
 import HorizontalFlatList from './app/components/HorizontalFlatList';
 import BasicSectionList from './app/components/BasicSectionList';
+import LifeCycleComponent from './app/components/LifeCycleComponent';
 
 
-AppRegistry.registerComponent(appName, () => BasicSectionList);
+AppRegistry.registerComponent(appName, () => LifeCycleComponent);
